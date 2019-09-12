@@ -3,4 +3,4 @@
 **Producer**: David Knolls
 **Programmer**: Rongyi Zhao, Huadong Zhang
 **Artitst**:
-**Designer**
+**Designer**: Yuanchao Liu
