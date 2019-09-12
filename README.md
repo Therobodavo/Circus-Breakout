@@ -2,5 +2,6 @@
 ## Team Organization
 **Producer**: David Knolls
 **Programmer**: Rongyi Zhao, Huadong Zhang
-**Artitst**:
+**Artitst**: Jiayan Li
 **Designer**: Yuanchao Liu
+
