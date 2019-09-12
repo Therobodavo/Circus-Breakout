@@ -1,5 +1,6 @@
 # Circus-Breakout
-
-Group Members:
-
-David Knolls
+## Team Organization
+**Producer**:
+**Programmer**: Rongyi Zhao
+**Artitst**:
+**Designer**
