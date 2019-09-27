@@ -24,9 +24,27 @@ public class Animal : MonoBehaviour
         isGround = false;
         for (int i = 0; i < contacts.Count; i++)
         {
-            if (contacts[i].relativeVelocity.y == 0)
+            if (contacts[i].relativeVelocity.y <= 0.01f)
             {
-                isGround = true;
+                if(contacts.Count > 1)
+                {
+                    int count = 0;
+                    for (int j = 0; j < contacts.Count; j++)
+                    {
+                        if (contacts[j].point.y < transform.position.y)
+                        {
+                            count++;
+                        }
+                    }
+                    if (count >= 2)
+                    {
+                        isGround = true;
+                    }
+                }
+                else
+                {
+                    isGround = true;
+                }
                 break;
             }
         }
