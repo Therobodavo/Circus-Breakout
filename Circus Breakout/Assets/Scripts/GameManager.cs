@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public List<Animal> animals = new List<Animal>();
+    [HideInInspector]
+    public int stars = 0;
 
     private int currentAnimal = 0;
     
