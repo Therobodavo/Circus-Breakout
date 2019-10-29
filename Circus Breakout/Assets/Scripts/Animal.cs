@@ -9,6 +9,7 @@ public class Animal : MonoBehaviour
     public float jumpForce;
 
     [HideInInspector]public bool isUnderControl;
+    [HideInInspector]public List<FallFunction> disableList = new List<FallFunction>();
 
     protected bool isGround;
 
@@ -54,6 +55,17 @@ public class Animal : MonoBehaviour
             {
                 Jump();
             }
+            if(Input.GetKeyDown(KeyCode.S) && isGround == true && contacts[0].collider.gameObject.GetComponent<FallFunction>())
+            {
+                if (this.GetType().Name.Equals("Elephant"))
+                {
+                    contacts[0].collider.gameObject.GetComponent<FallFunction>().DisableCollider(8, this);
+                }
+                else
+                {
+                    contacts[0].collider.gameObject.GetComponent<FallFunction>().DisableCollider(9, this);
+                }
+            }
         }
     }
 
@@ -68,12 +80,22 @@ public class Animal : MonoBehaviour
     private void Move()
     {
         transform.position += new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime, 0, 0);
+        //EnablePlatformList();
     }
 
     private void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+        //EnablePlatformList();
     }
 
+    private void EnablePlatformList()
+    {
+        foreach(var t in disableList)
+        {
+            t.EnableCollider();
+        }
+        disableList.Clear();
+    }
 }
 
