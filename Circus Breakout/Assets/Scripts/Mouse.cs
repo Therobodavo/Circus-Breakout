@@ -21,5 +21,24 @@ public class Mouse : Animal
 
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("WinTrigger"))
+        {
+            GameManager.instance.isMouseReach = true;
+            if (GameManager.instance.isElephantReach)
+            {
+                GameManager.instance.Win();
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("WinTrigger"))
+        {
+            GameManager.instance.isMouseReach = false;
+        }
+    }
+
 }

@@ -72,6 +72,10 @@ public class Animal : MonoBehaviour
 
     private void Jump()
     {
+        if(GetComponent<Rigidbody2D>().velocity.y > 0.5f)
+        {
+            return;
+        }
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
     }
 

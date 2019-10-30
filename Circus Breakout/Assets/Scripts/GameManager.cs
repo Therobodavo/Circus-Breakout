@@ -1,14 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     public List<Animal> animals = new List<Animal>();
+<<<<<<< Updated upstream
+=======
+    public Animation elephantIconAnimation;
+    public Canvas elephantIconCanvas;
+    public Animation mouseIconAnimation;
+    public Canvas mouseIconCanvas;
+    public Button pauseButton;
+>>>>>>> Stashed changes
 
-    private int currentAnimal = 0;
+    public GameObject pausePanel;
+    public Button resumeButton;
+    public Button menuButton;
+    public Button restartButton;
+    public Button exitButton;
+
+    public GameObject winPanel;
+    public Button winMenuButton;
+    public Button winRestartButton;
+    public Button winExitButton;
+
+
+    [HideInInspector] public int stars = 0;
+    [HideInInspector] public bool isElephantReach;
+    [HideInInspector] public bool isMouseReach;
+
+    private int currentAnimal = 0;//0 = Elephant, 1 = Mouse
     
     void Start()
     {
@@ -21,12 +47,23 @@ public class GameManager : MonoBehaviour
 
         animals[0].isUnderControl = true;
         animals[1].isUnderControl = false;
+
+        pauseButton.onClick.AddListener(PauseGame);
+        resumeButton.onClick.AddListener(ResumeGame);
+        menuButton.onClick.AddListener(BackToMenu);
+        restartButton.onClick.AddListener(RestartGame);
+        exitButton.onClick.AddListener(ExitGame);
+        winMenuButton.onClick.AddListener(BackToMenu);
+        winRestartButton.onClick.AddListener(RestartGame);
+        winExitButton.onClick.AddListener(ExitGame);
+        pausePanel.SetActive(false);
+        winPanel.SetActive(false);
     }
 
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             SwitchAnimal();
         }
@@ -34,6 +71,10 @@ public class GameManager : MonoBehaviour
 
     void SwitchAnimal()
     {
+        if(Time.timeScale == 0)
+        {
+            return;
+        }
         if(currentAnimal == 0)
         {
             currentAnimal = 1;
@@ -46,5 +87,60 @@ public class GameManager : MonoBehaviour
             animals[0].isUnderControl = true;
             animals[1].isUnderControl = false;
         }
+        elephantIconAnimation.Play();
+        mouseIconAnimation.Play();
+        Invoke("ChangeIconsSortingOrder", 0.5f);
+    }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+        pauseButton.gameObject.SetActive(false);
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+        pauseButton.gameObject.SetActive(true);
+    }
+
+    void BackToMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+
+    void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    void ChangeIconsSortingOrder()
+    {
+        if (currentAnimal == 0)
+        {
+            elephantIconCanvas.sortingOrder = 2;
+            mouseIconCanvas.sortingOrder = 1;
+        }
+        else
+        {
+            elephantIconCanvas.sortingOrder = 1;
+            mouseIconCanvas.sortingOrder = 2;
+        }
+    }
+
+    public void Win()
+    {
+        Time.timeScale = 0;
+        winPanel.SetActive(true);
+        pauseButton.gameObject.SetActive(true);
     }
 }
