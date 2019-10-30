@@ -9,14 +9,13 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public List<Animal> animals = new List<Animal>();
-<<<<<<< Updated upstream
-=======
+
     public Animation elephantIconAnimation;
     public Canvas elephantIconCanvas;
     public Animation mouseIconAnimation;
     public Canvas mouseIconCanvas;
     public Button pauseButton;
->>>>>>> Stashed changes
+
 
     public GameObject pausePanel;
     public Button resumeButton;
