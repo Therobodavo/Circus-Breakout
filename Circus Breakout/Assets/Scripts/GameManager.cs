@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isElephantReach;
     [HideInInspector] public bool isMouseReach;
 
-    private int currentAnimal = 0;//0 = Elephant, 1 = Mouse
+    private int currentAnimal = 1;//0 = Elephant, 1 = Mouse
     
     void Start()
     {
@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
         else
             Destroy(transform.gameObject);
 
-        animals[0].isUnderControl = true;
-        animals[1].isUnderControl = false;
+        animals[0].isUnderControl = false;
+        animals[1].isUnderControl = true;
 
         pauseButton.onClick.AddListener(PauseGame);
         resumeButton.onClick.AddListener(ResumeGame);
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
         winExitButton.onClick.AddListener(ExitGame);
         pausePanel.SetActive(false);
         winPanel.SetActive(false);
+        ChangeIconsSortingOrder();
     }
 
     
