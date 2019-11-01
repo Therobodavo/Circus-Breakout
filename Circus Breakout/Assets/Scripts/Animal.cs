@@ -8,13 +8,17 @@ public class Animal : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
 
+    public GameObject animalSprite;
+
     [HideInInspector]public bool isUnderControl;
 
     protected bool isGround;
+    protected bool isMovingRight;
 
     protected virtual void Start()
     {
         isGround = true;
+        isMovingRight = true;
     }
 
     protected virtual void Update()
@@ -50,7 +54,7 @@ public class Animal : MonoBehaviour
         }
         if (isUnderControl)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && isGround == true)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround == true)
             {
                 Jump();
             }
@@ -68,6 +72,22 @@ public class Animal : MonoBehaviour
     private void Move()
     {
         transform.position += new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime, 0, 0);
+        if(Input.GetAxis("Horizontal") < 0)
+        {
+            if (isMovingRight && animalSprite != null)
+            {
+                isMovingRight = false;
+                animalSprite.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            }
+        }
+        else if(Input.GetAxis("Horizontal") > 0)
+        {
+            if (!isMovingRight && animalSprite != null)
+            {
+                isMovingRight = true;
+                animalSprite.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+        }
     }
 
     private void Jump()
