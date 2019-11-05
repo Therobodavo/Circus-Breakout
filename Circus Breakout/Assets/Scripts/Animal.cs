@@ -10,6 +10,8 @@ public class Animal : MonoBehaviour
 
     public GameObject animalSprite;
 
+    public Animator animalAnimator;
+
     [HideInInspector]public bool isUnderControl;
 
     protected bool isGround;
@@ -86,6 +88,17 @@ public class Animal : MonoBehaviour
             {
                 isMovingRight = true;
                 animalSprite.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+        }
+        if(animalAnimator != null)
+        {
+            if(Input.GetAxis("Horizontal") != 0)
+            {
+                animalAnimator.SetBool("isMoving", true);
+            }
+            else
+            {
+                animalAnimator.SetBool("isMoving", false);
             }
         }
     }

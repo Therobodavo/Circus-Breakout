@@ -79,12 +79,20 @@ public class GameManager : MonoBehaviour
         {
             currentAnimal = 1;
             animals[1].isUnderControl = true;
+            if (animals[0].animalAnimator != null)
+            {
+                animals[0].animalAnimator.SetBool("isMoving", false);
+            }
             animals[0].isUnderControl = false;
         }
         else
         {
             currentAnimal = 0;
             animals[0].isUnderControl = true;
+            if(animals[1].animalAnimator != null)
+            {
+                animals[1].animalAnimator.SetBool("isMoving", false);
+            }
             animals[1].isUnderControl = false;
         }
         elephantIconAnimation.Play();
