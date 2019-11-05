@@ -54,6 +54,10 @@ public class Animal : MonoBehaviour
                 break;
             }
         }
+        if(animalAnimator != null && this.tag.Equals("Mouse"))
+        {
+            animalAnimator.SetBool("isInAir", !isGround);
+        }
         if (isUnderControl)
         {
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround == true)
