@@ -77,13 +77,17 @@ public class Animal : MonoBehaviour
 
     private void Move()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime, 0, 0);
-        if(Input.GetAxis("Horizontal") < 0)
+        //transform.position += new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime, 0, 0);
+       
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        
+        if (Input.GetAxis("Horizontal") < 0)
         {
             if (isMovingRight && animalSprite != null)
             {
                 isMovingRight = false;
                 animalSprite.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
             }
         }
         else if(Input.GetAxis("Horizontal") > 0)
@@ -92,6 +96,7 @@ public class Animal : MonoBehaviour
             {
                 isMovingRight = true;
                 animalSprite.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
             }
         }
         if(animalAnimator != null)

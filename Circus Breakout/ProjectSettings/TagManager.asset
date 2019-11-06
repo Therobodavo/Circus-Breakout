@@ -8,6 +8,7 @@ TagManager:
   - Elephant
   - Mouse
   - WinTrigger
+  - ElephantTop
   layers:
   - Default
   - TransparentFX

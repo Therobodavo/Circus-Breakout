@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Mouse : Animal
 {
+    [HideInInspector]public bool isOnElephant = false;
 
     protected override void Start()
     {
@@ -19,6 +20,22 @@ public class Mouse : Animal
         base.FixedUpdate();
         
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Elephant"))
+        {
+            isOnElephant = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Elephant"))
+        {
+            isOnElephant = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

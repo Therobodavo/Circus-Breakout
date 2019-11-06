@@ -78,6 +78,20 @@ public class GameManager : MonoBehaviour
                 ResumeGame();
             }
         }
+        if (currentAnimal == 0)
+        {
+            if (!animals[1].GetComponent<Mouse>().isOnElephant)
+            {
+                animals[1].GetComponent<Rigidbody2D>().velocity = new Vector2(0, animals[1].GetComponent<Rigidbody2D>().velocity.y);
+            }
+            
+        }
+        else
+        {
+            
+            animals[0].GetComponent<Rigidbody2D>().velocity = new Vector2(0, animals[0].GetComponent<Rigidbody2D>().velocity.y);
+            
+        }
     }
 
     void SwitchAnimal()
@@ -93,6 +107,7 @@ public class GameManager : MonoBehaviour
             if (animals[0].animalAnimator != null)
             {
                 animals[0].animalAnimator.SetBool("isMoving", false);
+                animals[0].GetComponent<Rigidbody2D>().velocity = new Vector2(0, animals[0].GetComponent<Rigidbody2D>().velocity.y);
             }
             animals[0].isUnderControl = false;
         }
@@ -103,6 +118,7 @@ public class GameManager : MonoBehaviour
             if(animals[1].animalAnimator != null)
             {
                 animals[1].animalAnimator.SetBool("isMoving", false);
+                animals[1].GetComponent<Rigidbody2D>().velocity = new Vector2(0, animals[1].GetComponent<Rigidbody2D>().velocity.y);
             }
             animals[1].isUnderControl = false;
         }
