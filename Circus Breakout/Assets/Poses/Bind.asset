@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0543fe805424df99fe08ce744cbe49, type: 3}
+  m_Name: Bind
+  m_EditorClassIdentifier: 
+  m_PoseEntries:
+  - path: Bone/End
+    localPosition: {x: 8.53727, y: 2.3433506, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.99998, w: 0.0063395114}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body
+    localPosition: {x: 3.3000484, y: 0.000000014901161, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.012262799, w: 0.99992484}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body/Head
+    localPosition: {x: 5.4201903, y: 0.00000016109698, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.14158465, w: 0.9899262}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body/Head/Nose1
+    localPosition: {x: 4.8286858, y: 0.000000067055225, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.18117155, w: 0.98345155}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body/Head/Nose1/Nose2
+    localPosition: {x: 1.3769825, y: -0.0000027678907, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.14994682, w: 0.9886941}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body/Head/Nose1/Nose2/Nose3
+    localPosition: {x: 1.8707067, y: -0.0000006761402, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.33857694, w: 0.9409388}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body/Head/Nose1/Nose2/Nose3/Nose4
+    localPosition: {x: 1.7621837, y: 0.000002861023, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.34684592, w: 0.9379222}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body/Head/Nose1/Nose2/Nose3/Nose4/Nose5
+    localPosition: {x: 1.0649139, y: 0.0000035464764, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.31860518, w: 0.94788754}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body/Head/Nose1/Nose2/Nose3/Nose4/Nose5/Nose6
+    localPosition: {x: 0.9444808, y: 0.000005029142, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.0691647, w: 0.99760526}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body/Arm1
+    localPosition: {x: 5.7536836, y: 1.7080506, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.6534898, w: 0.75693536}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Body/Arm1/Arm2
+    localPosition: {x: 2.8700018, y: -0.0000023841858, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.038521223, w: -0.99925786}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Leg1
+    localPosition: {x: 1.4535221, y: 1.3813661, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.6986334, w: 0.7154799}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bone/End/Leg1/Leg2
+    localPosition: {x: 3.350003, y: -0.00000047683716, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.02383298, w: 0.999716}
+    localScale: {x: 1, y: 1, z: 1}
