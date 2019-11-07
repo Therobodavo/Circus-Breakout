@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public Button exitButton;
 
     public GameObject winPanel;
+    public Button winNextButton;
     public Button winMenuButton;
     public Button winRestartButton;
     public Button winExitButton;
@@ -52,6 +53,10 @@ public class GameManager : MonoBehaviour
         menuButton.onClick.AddListener(BackToMenu);
         restartButton.onClick.AddListener(RestartGame);
         exitButton.onClick.AddListener(ExitGame);
+        if(winNextButton != null)
+        {
+            winNextButton.onClick.AddListener(NextLevel);
+        }
         winMenuButton.onClick.AddListener(BackToMenu);
         winRestartButton.onClick.AddListener(RestartGame);
         winExitButton.onClick.AddListener(ExitGame);
@@ -151,6 +156,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    void NextLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     void ExitGame()
