@@ -24,6 +24,7 @@ public class Elephant : Animal
         if (collision.tag.Equals("WinTrigger"))
         {
             GameManager.instance.isElephantReach = true;
+            GameManager.instance.elephantBackground.color = new Color(GameManager.instance.elephantBackground.color.r, GameManager.instance.elephantBackground.color.g, GameManager.instance.elephantBackground.color.b, 1.0f);
             if (GameManager.instance.isMouseReach)
             {
                 GameManager.instance.Win();
@@ -36,6 +37,7 @@ public class Elephant : Animal
         if (collision.tag.Equals("WinTrigger"))
         {
             GameManager.instance.isElephantReach = false;
+            GameManager.instance.elephantBackground.color = new Color(GameManager.instance.elephantBackground.color.r, GameManager.instance.elephantBackground.color.g, GameManager.instance.elephantBackground.color.b, 0);
         }
     }
 }

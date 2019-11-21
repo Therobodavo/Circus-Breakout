@@ -43,6 +43,7 @@ public class Mouse : Animal
         if (collision.tag.Equals("WinTrigger"))
         {
             GameManager.instance.isMouseReach = true;
+            GameManager.instance.mouseBackground.color = new Color(GameManager.instance.mouseBackground.color.r, GameManager.instance.mouseBackground.color.g, GameManager.instance.mouseBackground.color.b, 1.0f);
             if (GameManager.instance.isElephantReach)
             {
                 GameManager.instance.Win();
@@ -55,6 +56,7 @@ public class Mouse : Animal
         if (collision.tag.Equals("WinTrigger"))
         {
             GameManager.instance.isMouseReach = false;
+            GameManager.instance.mouseBackground.color = new Color(GameManager.instance.mouseBackground.color.r, GameManager.instance.mouseBackground.color.g, GameManager.instance.mouseBackground.color.b, 0);
         }
     }
 

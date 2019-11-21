@@ -2198,7 +2198,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -336.1, y: -178.9}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 54.13, y: 54.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &683933547
 MonoBehaviour:
@@ -2213,14 +2213,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.2271074, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fdf11dcff721954785242c39e8266ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2291,7 +2291,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -329.2, y: -170.5}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 54.13, y: 54.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685232915
 MonoBehaviour:
@@ -2306,14 +2306,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.2271074, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fdf11dcff721954785242c39e8266ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3625,8 +3625,10 @@ MonoBehaviour:
   - {fileID: 177375666}
   elephantIconAnimation: {fileID: 685232917}
   elephantIconCanvas: {fileID: 1871098714}
+  elephantBackground: {fileID: 685232915}
   mouseIconAnimation: {fileID: 683933549}
   mouseIconCanvas: {fileID: 1424149490}
+  mouseBackground: {fileID: 683933547}
   pauseButton: {fileID: 997364367}
   pausePanel: {fileID: 1149775366}
   resumeButton: {fileID: 911110480}
@@ -4429,6 +4431,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 177375669}
+    - target: {fileID: 5847315046910655694, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2655691973041902483, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
         type: 3}
       propertyPath: m_LocalRotation.z

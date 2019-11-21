@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
 
     public Animation elephantIconAnimation;
     public Canvas elephantIconCanvas;
+    public Image elephantBackground;
     public Animation mouseIconAnimation;
     public Canvas mouseIconCanvas;
+    public Image mouseBackground;
     public Button pauseButton;
 
 
@@ -62,6 +64,8 @@ public class GameManager : MonoBehaviour
         winExitButton.onClick.AddListener(ExitGame);
         pausePanel.SetActive(false);
         winPanel.SetActive(false);
+        elephantBackground.color = new Color(elephantBackground.color.r, elephantBackground.color.g, elephantBackground.color.b, 0);
+        mouseBackground.color = new Color(mouseBackground.color.r, mouseBackground.color.g, mouseBackground.color.b, 0);
         ChangeIconsSortingOrder();
     }
 
