@@ -592,8 +592,11 @@ MonoBehaviour:
   moveSpeed: 2
   jumpForce: 30
   animalSprite: {fileID: 854046348}
+  emptyPointPrefab: {fileID: 2100028163698957233, guid: 505b09c000e2af94f89c738e2846cc4c,
+    type: 3}
   animalAnimator: {fileID: 1863572430}
   isUnderControl: 0
+  isOnRope: 0
   isOnElephant: 0
 --- !u!212 &177375667
 SpriteRenderer:
@@ -4436,6 +4439,56 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5847315048289751996, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.042936433
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847315048629179808, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.69509697
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847315048629179808, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.718916
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847315047925167478, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.039725233
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847315048462078084, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.14794143
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847315048462078084, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9889962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847315047544944241, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7888946
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847315047544944241, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.61452866
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847315048772741393, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5840554
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847315048772741393, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8117138
+      objectReference: {fileID: 0}
     - target: {fileID: 2655691973041902483, guid: 10bb0f7d0cf07b243bc1fdc565ecaffb,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -5947,7 +6000,6 @@ GameObject:
   - component: {fileID: 1926663054}
   - component: {fileID: 1926663053}
   - component: {fileID: 1926663052}
-  - component: {fileID: 1926663055}
   m_Layer: 0
   m_Name: Door (2)
   m_TagString: Untagged
@@ -6045,19 +6097,6 @@ Transform:
   m_Father: {fileID: 740365616}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1926663055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926663051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d2650cf7cc1f74f8c9a9d8ae26b772, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contacts: 0
 --- !u!1 &1928022299
 GameObject:
   m_ObjectHideFlags: 0

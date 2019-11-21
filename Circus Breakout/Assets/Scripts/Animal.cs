@@ -10,9 +10,14 @@ public class Animal : MonoBehaviour
 
     public GameObject animalSprite;
 
+    public GameObject emptyPointPrefab;
+
     public Animator animalAnimator;
 
-    [HideInInspector]public bool isUnderControl;
+    [HideInInspector] public bool isUnderControl;
+    [HideInInspector] public bool isOnRope = false;
+    protected GameObject ropePoint;
+    protected GameObject rope;
 
     protected bool isGround;
     protected bool isMovingRight;
@@ -54,13 +59,17 @@ public class Animal : MonoBehaviour
                 break;
             }
         }
-        if(animalAnimator != null && this.tag.Equals("Mouse"))
+        if (isOnRope)
+        {
+            transform.position = ropePoint.transform.position;
+        }
+        if (animalAnimator != null && this.tag.Equals("Mouse"))
         {
             animalAnimator.SetBool("isInAir", !isGround);
         }
         if (isUnderControl)
         {
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround == true)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && (isGround == true || isOnRope))
             {
                 Jump();
             }
@@ -69,10 +78,19 @@ public class Animal : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (isUnderControl)
+        if (isUnderControl && !isOnRope)
         {
             Move();
         }
+        if(isUnderControl && isOnRope)
+        {
+            WaveRope();
+        }
+    }
+
+    private void WaveRope()
+    {
+        rope.GetComponent<Rigidbody2D>().AddForce(new Vector2(Input.GetAxis("Horizontal") * 0.2f, 0));
     }
 
     private void Move()
@@ -118,8 +136,21 @@ public class Animal : MonoBehaviour
         {
             return;
         }
+        if (isOnRope)
+        {
+            isOnRope = false;
+            Invoke("RecoverRope", 0.3f);
+            Destroy(ropePoint);
+        }
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+        
     }
 
+    private void RecoverRope()
+    {
+        Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), rope.GetComponent<Collider2D>(), false);
+        rope = null;
+    }
 }
 

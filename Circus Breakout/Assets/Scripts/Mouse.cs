@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Mouse : Animal
 {
-    [HideInInspector]public bool isOnElephant = false;
-
+    [HideInInspector] public bool isOnElephant = false;
     protected override void Start()
     {
         base.Start();
@@ -28,6 +27,7 @@ public class Mouse : Animal
         {
             isOnElephant = true;
         }
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -48,6 +48,15 @@ public class Mouse : Animal
             {
                 GameManager.instance.Win();
             }
+        }
+        if (collision.tag.Equals("Rope"))
+        {
+            GameObject go = Instantiate(emptyPointPrefab, transform.position, transform.rotation);
+            go.transform.SetParent(collision.transform);
+            ropePoint = go;
+            rope = collision.gameObject;
+            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.GetComponent<Collider2D>());
+            isOnRope = true;
         }
     }
 
