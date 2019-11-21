@@ -31,6 +31,10 @@ public class DoorTrigger : MonoBehaviour
 
     void Update()
     {
+        if(door.GetComponent<SlowCloseDoor>() != null && door.GetComponent<SlowCloseDoor>().contacts > 0)
+        {
+            return;
+        }
         if (isTriggered)
         {
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, openSpeed);

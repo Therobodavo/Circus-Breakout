@@ -585,7 +585,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0038317442, y: -0.516775}
+  m_Offset: {x: 0.0038317442, y: -0.42887032}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -596,7 +596,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7357652, y: 0.41437936}
+  m_Size: {x: 0.7357652, y: 0.59018874}
   m_EdgeRadius: 0
 --- !u!114 &2700927641446876942
 MonoBehaviour:
@@ -895,11 +895,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2700927640544412680}
     m_Modifications:
-    - target: {fileID: 2594701707968262273, guid: fa7b026fc1ac16d4884201436ecca708,
-        type: 3}
-      propertyPath: m_Name
-      value: ELEL2
-      objectReference: {fileID: 0}
     - target: {fileID: 2594701707968262287, guid: fa7b026fc1ac16d4884201436ecca708,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -969,6 +964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.14127883
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594701707968262273, guid: fa7b026fc1ac16d4884201436ecca708,
+        type: 3}
+      propertyPath: m_Name
+      value: ELEL2
       objectReference: {fileID: 0}
     - target: {fileID: 2594701708336443951, guid: fa7b026fc1ac16d4884201436ecca708,
         type: 3}
