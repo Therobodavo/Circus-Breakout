@@ -61,6 +61,7 @@ public class Animal : MonoBehaviour
         }
         if (isOnRope)
         {
+
             transform.position = ropePoint.transform.position;
         }
         if (animalAnimator != null && this.tag.Equals("Mouse"))
