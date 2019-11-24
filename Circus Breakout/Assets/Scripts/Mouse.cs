@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mouse : Animal
 {
-    [HideInInspector] public bool isOnElephant = false;
+    public bool isOnElephant = false;
     BoxCollider2D elephant;
     Rigidbody2D rb;
 
@@ -42,7 +42,7 @@ public class Mouse : Animal
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("Elephant"))
+        if (collision.gameObject.tag.Equals("Elephant") || collision.gameObject.tag.Equals("TriggerItem"))
         {
             isOnElephant = true;
         }
@@ -51,7 +51,7 @@ public class Mouse : Animal
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("Elephant"))
+        if (collision.gameObject.tag.Equals("Elephant") || collision.gameObject.tag.Equals("TriggerItem"))
         {
             isOnElephant = false;
         }
