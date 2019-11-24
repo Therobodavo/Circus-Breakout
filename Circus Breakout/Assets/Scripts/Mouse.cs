@@ -5,12 +5,15 @@ using UnityEngine;
 public class Mouse : Animal
 {
     [HideInInspector] public bool isOnElephant = false;
-
+    Collider2D elephant;
+    Rigidbody2D rb;
 
 
     protected override void Start()
     {
         base.Start();
+        rb = GetComponent<Rigidbody2D>();
+        elephant = GameManager.instance.animals[0].GetComponent<Collider2D>();
     }
     protected override void Update()
     {
@@ -20,7 +23,16 @@ public class Mouse : Animal
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        
+
+        if (inWindZone)
+        {
+
+            if (elephant.bounds.ClosestPoint())
+            {
+                rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
+            }
+
+
 
     }
 

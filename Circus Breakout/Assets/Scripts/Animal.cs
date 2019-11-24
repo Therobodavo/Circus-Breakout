@@ -20,6 +20,7 @@ public class Animal : MonoBehaviour
     [HideInInspector] public bool isOnRope = false;
     [HideInInspector] public bool inWindZone = false;
 
+    Collider2D elephant;
     Rigidbody2D rb;
     protected GameObject ropePoint;
     protected GameObject rope;
@@ -32,6 +33,7 @@ public class Animal : MonoBehaviour
         isGround = true;
         isMovingRight = true;
         rb = GetComponent<Rigidbody2D>();
+        elephant = GameManager.instance.animals[0].GetComponent<Collider2D>();
     }
 
     protected virtual void Update()
@@ -96,9 +98,9 @@ public class Animal : MonoBehaviour
 
         if (inWindZone)
         {
-           
-            {
 
+            if(elephant.bounds.ClosestPoint())
+            {
                 rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
             }
             
