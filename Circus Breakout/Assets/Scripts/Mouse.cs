@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mouse : Animal
 {
-    [HideInInspector] public bool isOnElephant = false;
+    public bool isOnElephant = false;
     BoxCollider2D elephant;
     Rigidbody2D rb;
 
