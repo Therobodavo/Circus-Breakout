@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mouse : Animal
 {
     [HideInInspector] public bool isOnElephant = false;
-    Collider2D elephant;
+    BoxCollider2D elephant;
     Rigidbody2D rb;
 
 
@@ -13,7 +13,7 @@ public class Mouse : Animal
     {
         base.Start();
         rb = GetComponent<Rigidbody2D>();
-        elephant = GameManager.instance.animals[0].GetComponent<Collider2D>();
+        elephant = GameManager.instance.animals[0].GetComponent<BoxCollider2D>();
     }
     protected override void Update()
     {
@@ -26,13 +26,16 @@ public class Mouse : Animal
 
         if (inWindZone)
         {
-
-            if (elephant.bounds.ClosestPoint())
+            if(elephant == null)
+            {
+                elephant = GameManager.instance.animals[0].GetComponent<BoxCollider2D>();
+            }
+            if (elephant.bounds.ClosestPoint(transform.position).x < elephant.bounds.max.x && elephant.bounds.ClosestPoint(transform.position).x > elephant.bounds.min.x)
             {
                 rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
             }
 
-
+        }
 
     }
 
@@ -80,7 +83,7 @@ public class Mouse : Animal
     {
         if (collision.gameObject.tag == "WindArea")
         {
-            Debug.Log("1111");
+            //Debug.Log("1111");
             windZone = collision.gameObject;
             inWindZone = true;
         }
@@ -96,7 +99,7 @@ public class Mouse : Animal
 
         if (collision.gameObject.tag == "WindArea")
         {
-            Debug.Log("1111");
+            //Debug.Log("1111");
             inWindZone = false;
         }
     }
