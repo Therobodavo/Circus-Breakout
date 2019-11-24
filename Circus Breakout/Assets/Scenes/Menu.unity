@@ -498,8 +498,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.3, y: 144.4}
-  m_SizeDelta: {x: 351.32, y: 154.04}
+  m_AnchoredPosition: {x: -24, y: 98}
+  m_SizeDelta: {x: 482.7, y: 321.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &94668969
 MonoBehaviour:
@@ -521,7 +521,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 35348552e2b6f5546b0aad0e6fc20a92, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93e02bebb74dbd7438f27a360e704d32, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -811,12 +811,8 @@ MonoBehaviour:
   worldPanel: {fileID: 1520317334}
   levelPanels:
   - {fileID: 178267720}
-  - {fileID: 0}
-  - {fileID: 0}
   levelBackButtons:
   - {fileID: 1985096952}
-  - {fileID: 0}
-  - {fileID: 0}
   settingPanel: {fileID: 1827411652}
   helpPanel: {fileID: 304940959}
 --- !u!1 &176031749
@@ -911,7 +907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &178267721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5252,7 +5248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520317335
 RectTransform:
   m_ObjectHideFlags: 0
