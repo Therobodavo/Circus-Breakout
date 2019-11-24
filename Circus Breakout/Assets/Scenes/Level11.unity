@@ -5911,6 +5911,11 @@ PrefabInstance:
       propertyPath: freeElephant
       value: 
       objectReference: {fileID: 522231941}
+    - target: {fileID: 4014342063579275106, guid: 8f8e03cc150209d48818664668bafcb0,
+        type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4014342063659880847, guid: 8f8e03cc150209d48818664668bafcb0,
         type: 3}
       propertyPath: m_Color.r
