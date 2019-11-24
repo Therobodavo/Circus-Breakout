@@ -5408,7 +5408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 2071075424}
   isElephantOnly: 0
-  isOneTime: 1
+  isOneTime: 0
   upDistance: 2.19
   buttonDownDistance: 0.09
   openSpeed: 0.08
