@@ -6577,7 +6577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942570275}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.68, y: 0.64, z: 4.976738}
+  m_LocalPosition: {x: -0.68, y: 0.67, z: 4.976738}
   m_LocalScale: {x: 0.03359, y: 0.02438, z: 1}
   m_Children:
   - {fileID: 492318185}
@@ -6599,7 +6599,7 @@ MonoBehaviour:
   door: {fileID: 2071075424}
   isElephantOnly: 0
   isOneTime: 1
-  upDistance: 1.09
+  upDistance: 0.85
   buttonDownDistance: 0.09
   openSpeed: 0.08
   closeSpeed: 0.08
@@ -6905,7 +6905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071075424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.174306, y: -3.9946084, z: 26.144596}
+  m_LocalPosition: {x: 4.174306, y: -4, z: 26.144596}
   m_LocalScale: {x: 0.84, y: 1, z: 1}
   m_Children:
   - {fileID: 2090477548}
