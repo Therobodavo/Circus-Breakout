@@ -13,7 +13,6 @@ public class Mouse : Animal
     {
         base.Start();
         rb = GetComponent<Rigidbody2D>();
-        elephant = GameManager.instance.animals[0].GetComponent<BoxCollider2D>();
     }
     protected override void Update()
     {
@@ -30,6 +29,7 @@ public class Mouse : Animal
             {
                 elephant = GameManager.instance.animals[0].GetComponent<BoxCollider2D>();
             }
+            Debug.Log(elephant);
             if (elephant.bounds.ClosestPoint(transform.position).x < elephant.bounds.max.x && elephant.bounds.ClosestPoint(transform.position).x > elephant.bounds.min.x)
             {
                 rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
