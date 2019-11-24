@@ -35,8 +35,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int stars = 0;
     [HideInInspector] public bool isElephantReach;
     [HideInInspector] public bool isMouseReach;
+    [HideInInspector] public int isGotStars = -1;
 
     private int currentAnimal = 1;//0 = Elephant, 1 = Mouse
+
     
     void Start()
     {
@@ -67,6 +69,7 @@ public class GameManager : MonoBehaviour
         elephantBackground.color = new Color(elephantBackground.color.r, elephantBackground.color.g, elephantBackground.color.b, 0);
         mouseBackground.color = new Color(mouseBackground.color.r, mouseBackground.color.g, mouseBackground.color.b, 0);
         ChangeIconsSortingOrder();
+        isGotStars = -1;
     }
 
     
@@ -188,6 +191,13 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        if(isGotStars != -1)
+        {
+            if (DataManager.instance != null)
+            {
+                DataManager.instance.stars[isGotStars] = true;
+            }
+        }
         Time.timeScale = 0;
         winPanel.SetActive(true);
         pauseButton.gameObject.SetActive(true);

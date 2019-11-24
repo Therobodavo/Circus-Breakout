@@ -16,6 +16,12 @@ public class StarButton : MonoBehaviour
     private Vector3 initialButtonPosition;
     private Vector3 targetButtonPosition;
 
+    void Start()
+    {
+        initialButtonPosition = transform.position;
+        targetButtonPosition = transform.position - new Vector3(0, buttonDownDistance, 0);
+    }
+
     void Update()
     {
         
@@ -34,10 +40,9 @@ public class StarButton : MonoBehaviour
         if ((collision.tag.Equals("Mouse") && !isElephantOnly) || collision.tag.Equals("Elephant") || collision.tag.Equals("TriggerItem"))
         {
             isTriggered = true;
-            if (DataManager.instance != null)
+            if (GameManager.instance != null)
             {
-                DataManager.instance.stars[index] = true;
-                DataManager.instance.UpdateStars();
+                GameManager.instance.isGotStars = index;
             }
         }
     }

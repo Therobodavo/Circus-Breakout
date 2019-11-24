@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DataManager : MonoBehaviour
 {
 
     public static DataManager instance;
     public List<bool> stars = new List<bool>();
-    public List<GameObject> starsObjects = new List<GameObject>();
 
     private void Awake()
     {
@@ -22,7 +22,6 @@ public class DataManager : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     
@@ -31,24 +30,11 @@ public class DataManager : MonoBehaviour
         
     }
 
-    public void UpdateStars()
-    {
-        foreach(var i in starsObjects)
-        {
-            i.SetActive(false);
-        }
-        for (int i = 0; i < stars.Count; i++)
-        {
-            starsObjects[i].SetActive(stars[i]);
-        }
-    }
-
     public void ResetData()
     {
         for(int i = 0; i < stars.Count; i++)
         {
             stars[i] = false;
         }
-        UpdateStars();
     }
 }
