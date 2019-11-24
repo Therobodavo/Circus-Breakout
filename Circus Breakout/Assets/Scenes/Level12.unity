@@ -6415,7 +6415,7 @@ MonoBehaviour:
   door: {fileID: 2071075424}
   isElephantOnly: 0
   isOneTime: 1
-  upDistance: 0.85
+  upDistance: 0.86
   buttonDownDistance: 0.09
   openSpeed: 0.08
   closeSpeed: 0.08
@@ -6706,6 +6706,7 @@ GameObject:
   - component: {fileID: 2071075425}
   - component: {fileID: 2071075427}
   - component: {fileID: 2071075426}
+  - component: {fileID: 2071075428}
   m_Layer: 0
   m_Name: RedPlatform
   m_TagString: Ground
@@ -6735,7 +6736,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071075424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 68cf9dca992885e48aa8b909daeee44c, type: 2}
   m_IsTrigger: 0
@@ -6803,6 +6804,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &2071075428
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071075424}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.24610879, y: -0.002246822}
+  m_Size: {x: 2.5815403, y: 0.26745996}
+  m_Direction: 1
 --- !u!1 &2090477547
 GameObject:
   m_ObjectHideFlags: 0
