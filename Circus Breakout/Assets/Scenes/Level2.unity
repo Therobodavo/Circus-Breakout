@@ -594,9 +594,11 @@ MonoBehaviour:
   animalSprite: {fileID: 854046348}
   emptyPointPrefab: {fileID: 2100028163698957233, guid: 505b09c000e2af94f89c738e2846cc4c,
     type: 3}
+  windZone: {fileID: 0}
   animalAnimator: {fileID: 1863572430}
   isUnderControl: 0
   isOnRope: 0
+  inWindZone: 0
   isOnElephant: 0
 --- !u!212 &177375667
 SpriteRenderer:
