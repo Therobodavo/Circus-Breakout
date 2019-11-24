@@ -102,7 +102,10 @@ public class Animal : MonoBehaviour
 
     private void WaveRope()
     {
-        rope.GetComponent<Rigidbody2D>().AddForce(new Vector2(Input.GetAxis("Horizontal") * 0.2f, 0));
+        if (rope.GetComponent<Rigidbody2D>() != null && rope.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Dynamic) 
+        {
+            rope.GetComponent<Rigidbody2D>().AddForce(new Vector2(Input.GetAxis("Horizontal") * 0.2f, 0));
+        }
     }
 
     private void Move()
