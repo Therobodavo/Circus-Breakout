@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class WindArea : MonoBehaviour
 {
-    public Vector2 Force = Vector2.zero;
-    private Collider2D Mouse;
+    public float strength;
+    public Vector2 direction = Vector3.zero;
+   // private bool isTriggered;
+    //public GameObject mouse;
+    //public Collider2D  Elephant;
 
-    private void OnTriggerStay2D(Collider collision)
+   /* private void OnTriggerStay2D(Collider collision)
     {
-        if(collision.tag.Equals("Mouse"))
-        //Rigidbody2D body = object.attachedRigidbody;
-
-    }
+        if (collision.tag.Equals("Mouse"))
+        {
+            Collider.
+            isTriggered = true;
+        }
+    }*/
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +28,10 @@ public class WindArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if(isTriggered)
+        {
+            //if(Elephant.bounds)
+            
+        }
     }
 }

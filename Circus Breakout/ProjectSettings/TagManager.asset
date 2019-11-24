@@ -11,6 +11,7 @@ TagManager:
   - ElephantTop
   - TriggerItem
   - Rope
+  - WindArea
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Mouse : Animal
 {
     [HideInInspector] public bool isOnElephant = false;
+
+
+
     protected override void Start()
     {
         base.Start();
@@ -61,12 +64,28 @@ public class Mouse : Animal
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "WindArea")
+        {
+            Debug.Log("1111");
+            windZone = collision.gameObject;
+            inWindZone = true;
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag.Equals("WinTrigger"))
         {
             GameManager.instance.isMouseReach = false;
             GameManager.instance.mouseBackground.color = new Color(GameManager.instance.mouseBackground.color.r, GameManager.instance.mouseBackground.color.g, GameManager.instance.mouseBackground.color.b, 0);
+        }
+
+        if (collision.gameObject.tag == "WindArea")
+        {
+            Debug.Log("1111");
+            inWindZone = false;
         }
     }
 

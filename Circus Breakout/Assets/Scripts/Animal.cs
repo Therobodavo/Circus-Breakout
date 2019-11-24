@@ -12,10 +12,15 @@ public class Animal : MonoBehaviour
 
     public GameObject emptyPointPrefab;
 
+    public GameObject windZone;
+
     public Animator animalAnimator;
 
     [HideInInspector] public bool isUnderControl;
     [HideInInspector] public bool isOnRope = false;
+    [HideInInspector] public bool inWindZone = false;
+
+    Rigidbody2D rb;
     protected GameObject ropePoint;
     protected GameObject rope;
 
@@ -26,6 +31,7 @@ public class Animal : MonoBehaviour
     {
         isGround = true;
         isMovingRight = true;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Update()
@@ -87,6 +93,18 @@ public class Animal : MonoBehaviour
         {
             WaveRope();
         }
+
+        if (inWindZone)
+        {
+           
+            {
+
+                rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
+            }
+            
+
+        }
+
     }
 
     private void WaveRope()
@@ -153,5 +171,6 @@ public class Animal : MonoBehaviour
         Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), rope.GetComponent<Collider2D>(), false);
         rope = null;
     }
+
 }
 
