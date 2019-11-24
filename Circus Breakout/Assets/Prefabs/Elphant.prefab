@@ -570,8 +570,12 @@ MonoBehaviour:
   moveSpeed: 1.5
   jumpForce: 0
   animalSprite: {fileID: 2700927640544412681}
+  emptyPointPrefab: {fileID: 0}
+  windZone: {fileID: 0}
   animalAnimator: {fileID: 5847315047131774561}
   isUnderControl: 0
+  isOnRope: 0
+  inWindZone: 0
 --- !u!61 &2700927641446876940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -895,6 +899,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2700927640544412680}
     m_Modifications:
+    - target: {fileID: 2594701707968262273, guid: fa7b026fc1ac16d4884201436ecca708,
+        type: 3}
+      propertyPath: m_Name
+      value: ELEL2
+      objectReference: {fileID: 0}
     - target: {fileID: 2594701707968262287, guid: fa7b026fc1ac16d4884201436ecca708,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -965,11 +974,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.14127883
       objectReference: {fileID: 0}
-    - target: {fileID: 2594701707968262273, guid: fa7b026fc1ac16d4884201436ecca708,
-        type: 3}
-      propertyPath: m_Name
-      value: ELEL2
-      objectReference: {fileID: 0}
     - target: {fileID: 2594701708336443951, guid: fa7b026fc1ac16d4884201436ecca708,
         type: 3}
       propertyPath: m_Mesh
@@ -978,12 +982,12 @@ PrefabInstance:
     - target: {fileID: 2594701708336443951, guid: fa7b026fc1ac16d4884201436ecca708,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2594701708336443950, guid: fa7b026fc1ac16d4884201436ecca708,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2594701707821669185, guid: fa7b026fc1ac16d4884201436ecca708,
         type: 3}
