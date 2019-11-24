@@ -8,8 +8,8 @@ public class AutoPlatform : MonoBehaviour
     public float speed;
     public float duration;
 
-    private int index;
-    private bool isWaiting;
+    public int index;
+    public bool isWaiting;
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class AutoPlatform : MonoBehaviour
                 isWaiting = true;
                 Invoke("IncreaseIndex", duration);
             }
-            if(index < path.Count - 1)
+            if(index < path.Count)
             {
                 transform.position = Vector3.Lerp(transform.position, path[index].position, speed);
             }
