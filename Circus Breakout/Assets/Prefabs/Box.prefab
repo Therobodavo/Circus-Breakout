@@ -119,7 +119,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.95}
+  m_Offset: {x: 0, y: -2}
   m_EdgeRadius: 0
   m_Points:
   - {x: -1.95, y: 0}
@@ -137,7 +137,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.95}
+  m_Offset: {x: 0, y: 2}
   m_EdgeRadius: 0
   m_Points:
   - {x: -1.95, y: 0}
@@ -155,7 +155,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.95, y: 0}
+  m_Offset: {x: -2, y: 0}
   m_EdgeRadius: 0
   m_Points:
   - {x: 0, y: 1.95}
@@ -173,7 +173,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.95, y: 0}
+  m_Offset: {x: 2, y: 0}
   m_EdgeRadius: 0
   m_Points:
   - {x: 0, y: 1.95}
