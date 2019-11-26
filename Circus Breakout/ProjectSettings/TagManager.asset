@@ -9,6 +9,9 @@ TagManager:
   - Mouse
   - WinTrigger
   - ElephantTop
+  - TriggerItem
+  - Rope
+  - WindArea
   layers:
   - Default
   - TransparentFX

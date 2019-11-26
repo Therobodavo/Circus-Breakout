@@ -10,9 +10,20 @@ public class Animal : MonoBehaviour
 
     public GameObject animalSprite;
 
+    public GameObject emptyPointPrefab;
+
+    public GameObject windZone;
+
     public Animator animalAnimator;
 
-    [HideInInspector]public bool isUnderControl;
+    [HideInInspector] public bool isUnderControl;
+    [HideInInspector] public bool isOnRope = false;
+    [HideInInspector] public bool inWindZone = false;
+
+    //Collider2D elephant;
+    //Rigidbody2D rb;
+    protected GameObject ropePoint;
+    protected GameObject rope;
 
     protected bool isGround;
     protected bool isMovingRight;
@@ -21,6 +32,8 @@ public class Animal : MonoBehaviour
     {
         isGround = true;
         isMovingRight = true;
+        //rb = GetComponent<Rigidbody2D>();
+        //elephant = GameManager.instance.animals[0].GetComponent<Collider2D>();
     }
 
     protected virtual void Update()
@@ -54,13 +67,18 @@ public class Animal : MonoBehaviour
                 break;
             }
         }
-        if(animalAnimator != null && this.tag.Equals("Mouse"))
+        if (isOnRope)
+        {
+
+            transform.position = ropePoint.transform.position;
+        }
+        if (animalAnimator != null && this.tag.Equals("Mouse"))
         {
             animalAnimator.SetBool("isInAir", !isGround);
         }
         if (isUnderControl)
         {
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround == true)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && (isGround == true || isOnRope))
             {
                 Jump();
             }
@@ -69,9 +87,24 @@ public class Animal : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (isUnderControl)
+        if (isUnderControl && !isOnRope)
         {
             Move();
+        }
+        if(isUnderControl && isOnRope)
+        {
+            WaveRope();
+        }
+
+
+
+    }
+
+    private void WaveRope()
+    {
+        if (rope.GetComponent<Rigidbody2D>() != null && rope.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Dynamic) 
+        {
+            rope.GetComponent<Rigidbody2D>().AddForce(new Vector2(Input.GetAxis("Horizontal") * 0.2f, 0));
         }
     }
 
@@ -118,7 +151,21 @@ public class Animal : MonoBehaviour
         {
             return;
         }
+        if (isOnRope)
+        {
+            isOnRope = false;
+            Invoke("RecoverRope", 0.3f);
+            Destroy(ropePoint);
+        }
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+        
+    }
+
+    private void RecoverRope()
+    {
+        Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), rope.GetComponent<Collider2D>(), false);
+        rope = null;
     }
 
 }

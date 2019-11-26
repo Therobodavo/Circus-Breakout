@@ -14,7 +14,9 @@ public class MenuUIManager : MonoBehaviour
     public Button helpButton;
     public Button exitButton;
 
-    public GameObject levelPanel;
+    public GameObject worldPanel;
+    public List<GameObject> levelPanels = new List<GameObject>();
+    public List<Button> levelBackButtons = new List<Button>();
 
     public GameObject settingPanel;
 
@@ -34,12 +36,17 @@ public class MenuUIManager : MonoBehaviour
         settingButton.onClick.AddListener(OpenSettingPanel);
         helpButton.onClick.AddListener(OpenHelpPanel);
         exitButton.onClick.AddListener(ExitGame);
+        foreach(var i in levelBackButtons)
+        {
+            i.onClick.AddListener(BackToWorld);
+        }
         BackToMenu();
     }
     
     private void OpenLevelPanel()
     {
-        levelPanel.SetActive(true);
+        StarManager.instance.UpdateStars();
+        worldPanel.SetActive(true);
         mainPanel.SetActive(false);
     }
 
@@ -62,14 +69,28 @@ public class MenuUIManager : MonoBehaviour
 
     public void BackToMenu()
     {
-        levelPanel.SetActive(false);
+        worldPanel.SetActive(false);
         settingPanel.SetActive(false);
         helpPanel.SetActive(false);
         mainPanel.SetActive(true);
     }
 
+    public void BackToWorld()
+    {
+        worldPanel.SetActive(true);
+        foreach(var i in levelPanels)
+        {
+            i.SetActive(false);
+        }
+    }
+
     private void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void OpenLevel(int index)
+    {
+        levelPanels[index - 1].SetActive(true);
     }
 }

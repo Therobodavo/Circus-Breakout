@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
 
     public Animation elephantIconAnimation;
     public Canvas elephantIconCanvas;
+    public Image elephantBackground;
     public Animation mouseIconAnimation;
     public Canvas mouseIconCanvas;
+    public Image mouseBackground;
     public Button pauseButton;
 
 
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     public Button exitButton;
 
     public GameObject winPanel;
+    public Button winNextButton;
     public Button winMenuButton;
     public Button winRestartButton;
     public Button winExitButton;
@@ -32,8 +35,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int stars = 0;
     [HideInInspector] public bool isElephantReach;
     [HideInInspector] public bool isMouseReach;
+    [HideInInspector] public int isGotStars = -1;
 
     private int currentAnimal = 1;//0 = Elephant, 1 = Mouse
+
     
     void Start()
     {
@@ -52,12 +57,19 @@ public class GameManager : MonoBehaviour
         menuButton.onClick.AddListener(BackToMenu);
         restartButton.onClick.AddListener(RestartGame);
         exitButton.onClick.AddListener(ExitGame);
+        if(winNextButton != null)
+        {
+            winNextButton.onClick.AddListener(NextLevel);
+        }
         winMenuButton.onClick.AddListener(BackToMenu);
         winRestartButton.onClick.AddListener(RestartGame);
         winExitButton.onClick.AddListener(ExitGame);
         pausePanel.SetActive(false);
         winPanel.SetActive(false);
+        elephantBackground.color = new Color(elephantBackground.color.r, elephantBackground.color.g, elephantBackground.color.b, 0);
+        mouseBackground.color = new Color(mouseBackground.color.r, mouseBackground.color.g, mouseBackground.color.b, 0);
         ChangeIconsSortingOrder();
+        isGotStars = -1;
     }
 
     
@@ -152,6 +164,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    void NextLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
     void ExitGame()
     {
@@ -174,6 +191,13 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        if(isGotStars != -1)
+        {
+            if (DataManager.instance != null)
+            {
+                DataManager.instance.stars[isGotStars] = true;
+            }
+        }
         Time.timeScale = 0;
         winPanel.SetActive(true);
         pauseButton.gameObject.SetActive(true);

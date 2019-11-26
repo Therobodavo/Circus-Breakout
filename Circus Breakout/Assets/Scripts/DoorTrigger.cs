@@ -31,6 +31,10 @@ public class DoorTrigger : MonoBehaviour
 
     void Update()
     {
+        if(door.GetComponent<SlowCloseDoor>() != null && door.GetComponent<SlowCloseDoor>().contacts > 0)
+        {
+            return;
+        }
         if (isTriggered)
         {
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, openSpeed);
@@ -45,14 +49,14 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((collision.tag.Equals("Mouse") && !isElephantOnly) || collision.tag.Equals("Elephant"))
+        if ((collision.tag.Equals("Mouse") && !isElephantOnly) || collision.tag.Equals("Elephant") || collision.tag.Equals("TriggerItem"))
         {
             isTriggered = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if ((collision.tag.Equals("Mouse") && !isElephantOnly) || collision.tag.Equals("Elephant"))
+        if ((collision.tag.Equals("Mouse") && !isElephantOnly) || collision.tag.Equals("Elephant") || collision.tag.Equals("TriggerItem"))
         {
             isTriggered = false;
         }
