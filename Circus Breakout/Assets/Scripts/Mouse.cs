@@ -7,36 +7,43 @@ public class Mouse : Animal
     public bool isOnElephant = false;
     BoxCollider2D elephant;
     Rigidbody2D rb;
-
+    
+    
 
     protected override void Start()
     {
         base.Start();
         rb = GetComponent<Rigidbody2D>();
+        //GameObject go = GameObject.Find("WindArea");
+        //Transform fanPos = go.GetComponent<Transform>()
+        //GameObject.Find().GetComponent<WindArea>().rb;
+
     }
     protected override void Update()
     {
         base.Update();
+        
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
 
-        if (inWindZone)
+        /*if (inWindZone)
         {
             if(elephant == null)
             {
                 elephant = GameManager.instance.animals[0].GetComponent<BoxCollider2D>();
             }
-            if (elephant.bounds.ClosestPoint(transform.position).x < elephant.bounds.max.x && elephant.bounds.ClosestPoint(transform.position).x > elephant.bounds.min.x)
-            Debug.Log(elephant);
-            if (!(elephant.bounds.ClosestPoint(transform.position).x < elephant.bounds.max.x && elephant.bounds.ClosestPoint(transform.position).x > elephant.bounds.min.x))
-            {
-                rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
+            //if (elephant.transform.position.y>fanPos.position.y)
+            { if (elephant.bounds.ClosestPoint(transform.position).x < elephant.bounds.max.x && elephant.bounds.ClosestPoint(transform.position).x > elephant.bounds.min.x)
+                    Debug.Log(elephant);
+                if (!(elephant.bounds.ClosestPoint(transform.position).x < elephant.bounds.max.x && elephant.bounds.ClosestPoint(transform.position).x > elephant.bounds.min.x))
+                {
+                    rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
+                }
             }
-
-        }
+        }*/
 
     }
 
@@ -80,7 +87,7 @@ public class Mouse : Animal
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    /*private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "WindArea")
         {
@@ -88,7 +95,7 @@ public class Mouse : Animal
             windZone = collision.gameObject;
             inWindZone = true;
         }
-    }
+    }*/
 
     private void OnTriggerExit2D(Collider2D collision)
     {
