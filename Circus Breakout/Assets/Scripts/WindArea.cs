@@ -7,6 +7,7 @@ public class WindArea : MonoBehaviour
     public float strength;
     public Vector2 direction = Vector2.zero;
     public bool inWindZone;
+    public bool isEleinWind;
     Rigidbody2D mouseRb;
     Transform mousPos;
     Transform elePos;
@@ -53,13 +54,19 @@ public class WindArea : MonoBehaviour
             {
                 mousPos = GameManager.instance.animals[1].GetComponent<Transform>();
             }
-            if (elePos.position.y > transform.position.y)
+
+
+            if (!(elephant.bounds.ClosestPoint(mousPos.position).x < elephant.bounds.max.x && elephant.bounds.ClosestPoint(mousPos.position).x > elephant.bounds.min.x&&isEleinWind))
             {
-                if (!(elephant.bounds.ClosestPoint(mousPos.position).x < elephant.bounds.max.x && elephant.bounds.ClosestPoint(mousPos.position).x > elephant.bounds.min.x))
-            {
-                mouseRb.AddForce(direction * strength);
+
+                //if (!isUnder)
+                {
+                    mouseRb.AddForce(direction * strength);
+                } 
+
+                
             }
-            }
+            
         }
     }
 
@@ -71,6 +78,16 @@ public class WindArea : MonoBehaviour
             inWindZone = true;
         }
 
+        if (collision.gameObject.tag == "Elephant")
+        {
+
+            
+             Debug.Log("1111");
+             isEleinWind = true;
+            
+
+        }
+
     }
 
 
@@ -78,10 +95,16 @@ public class WindArea : MonoBehaviour
     {
 
 
-        if (collision.gameObject.tag == "WindArea")
+        if (collision.gameObject.tag == "Mouse")
         {
-            //Debug.Log("1111");
+            
             inWindZone = false;
+        }
+
+        if (collision.gameObject.tag == "Elephant")
+        {
+                Debug.Log("2222");
+                isEleinWind = false;
         }
     }
 }

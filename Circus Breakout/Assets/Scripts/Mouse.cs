@@ -105,11 +105,11 @@ public class Mouse : Animal
             GameManager.instance.mouseBackground.color = new Color(GameManager.instance.mouseBackground.color.r, GameManager.instance.mouseBackground.color.g, GameManager.instance.mouseBackground.color.b, 0);
         }
 
-        if (collision.gameObject.tag == "WindArea")
+        /*if (collision.gameObject.tag == "WindArea")
         {
             //Debug.Log("1111");
             inWindZone = false;
-        }
+        }*/
     }
 
 }
