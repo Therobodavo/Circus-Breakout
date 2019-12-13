@@ -77,6 +77,10 @@ public class Mouse : Animal
         }
         if (collision.tag.Equals("Rope"))
         {
+            if (isOnRope)
+            {
+                return;
+            }
             Vector2 point = collision.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position);
             GameObject go = Instantiate(emptyPointPrefab, point, transform.rotation);
             go.transform.SetParent(collision.transform);
